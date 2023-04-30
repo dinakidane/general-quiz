@@ -69,5 +69,50 @@ let questions = [
 
  function beginQuiz() {
     currentQuestion = 0;
-    totalScore.innerHTML = questions.length
+    totalScore.innerHTML = questions.length;
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option
+    trueBtn.onclick = () => {
+        if(questions[currentQuestion].answers[0].answer) {
+            if(score < 3) {
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion < 2) {
+            next();
+        }
+    }
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        if(questions[currentQuestion].answers[1].answer) {
+            if(score < 3) {
+                score++
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion < 2) {
+            next();
+        }
+    }
+
+    prevBtn.classList.add("hide")
  }
+
+ beginQuiz()
+
+ /**
+  * function restart() will reset score, reset the current question index and remove the 'hide' class from elements
+  */ 
+
+ function restart() {
+    currentQuestion = 0;
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.remove("hide");
+    submitBtn.classList.remove("hide");
+    trueBtn.classList.remove("hide");
+    falseBtn.classList.remove("hide");
+    score = 0;
+    userScore.innerHTML = score;
+    beginQuiz()
+}
