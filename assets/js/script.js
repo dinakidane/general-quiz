@@ -79,13 +79,13 @@ let questions = [
             }
         }
         userScore.innerHTML = score;
-        if(currentQuestion < 2) {
+        if (currentQuestion < 2) {
             next();
         }
     }
     falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
     falseBtn.onclick = () => {
-        if(questions[currentQuestion].answers[1].answer) {
+        if (questions[currentQuestion].answers[1].answer) {
             if(score < 3) {
                 score++
             }
@@ -115,4 +115,46 @@ let questions = [
     score = 0;
     userScore.innerHTML = score;
     beginQuiz()
+}
+
+/**
+ * function next() will jump to next question
+ * currentQuestion() will be incremented
+ * hidden class will be removed from prev button
+ * score will be incremnted based on option the user selects
+ */
+
+function next() {
+    currentQuestion++;
+    if (currentQuestion >= 2) {
+        nextBtn.classList.add("hide");
+        prevBtn.classList.remove("hide");
+    }
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+    trueBtn.onclick = () => {
+        if (questions[currentQuestion].answers[0].answer) {
+            if (score < 3) {
+                score++
+            }
+        }
+        userScore.innerHTML = score;
+        if (currentQuestion < 2) {
+            next()
+        }
+    }
+
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        if (questions[currentQuestion].answers[1].answer) {
+            if (score <3) {
+                score ++
+            }
+        }
+        userScore.innerHTML = score;
+        if (currentQuestion < 2) {
+            next();
+        }
+    }
+    prevBtn.classList.remove("hide");
 }
