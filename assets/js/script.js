@@ -199,5 +199,18 @@ function prev() {
     }
     nextBtn.classList.remove("hide");
 
+}
 
+/**
+ * Create submit button, hiding all elements except restart button and score
+ * It'll add a congratulations message
+ */
+
+function submit() {
+    prevBtn.classList.add("hide");
+    prevBtn.classList.add("hide");
+    prevBtn.classList.add("hide");
+    prevBtn.classList.add("hide");
+    prevBtn.classList.add("hide");
+    questionText.innerHTML = "Congratulations on submitting the Quiz"
 }
