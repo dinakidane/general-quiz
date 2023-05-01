@@ -208,9 +208,9 @@ function prev() {
 
 function submit() {
     prevBtn.classList.add("hide");
-    prevBtn.classList.add("hide");
-    prevBtn.classList.add("hide");
-    prevBtn.classList.add("hide");
-    prevBtn.classList.add("hide");
+    nextBtn.classList.add("hide");
+    submitBtn.classList.add("hide");
+    trueBtn.classList.add("hide");
+    falseBtn.classList.add("hide");
     questionText.innerHTML = "Congratulations on submitting the Quiz"
 }
